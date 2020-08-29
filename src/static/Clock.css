@@ -1,0 +1,39 @@
+.clock-container {
+    background-color: transparent;
+    margin: 20px;
+    padding: 20px;
+    border: solid 2px #000000;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: inline-block;
+    width: 35vw;
+}
+.clock-container h1 {
+    text-align: center;
+    margin: 0;
+}
+.clock-container span {
+    font-size: 60px;
+}
+.controls {
+}
+
+.controls button {
+    background-color: transparent;
+    padding: 10px;
+    margin: 15px;
+    font-size: 20px;
+    border: none;
+}
+
+.controls span {
+    font-size: 40px;
+    margin: 0 10px;
+}
+
+.control-icon {
+    pointer-events: none;
+}

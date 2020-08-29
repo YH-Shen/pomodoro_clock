@@ -1,0 +1,26 @@
+.timer-container {
+    margin: 20px;
+}
+.timer-container h1 {
+    text-align: center;
+}
+
+.controls {
+}
+
+.controls button {
+    background-color: transparent;
+    padding: 10px;
+    margin: 15px;
+    font-size: 20px;
+    border: none;
+}
+
+.controls span {
+    font-size: 40px;
+    margin: 0 10px;
+}
+
+.control-icon {
+    pointer-events: none;
+}

@@ -1,26 +1,74 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { library } from "@fortawesome/fontawesome-svg-core";
+// import { fab } from "@fortawesome/free-brands-svg-icons";
+import {
+    faMinus,
+    faPlus,
+    faPlay,
+    faPause,
+    faSyncAlt,
+} from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import Counter from "./components/Counter";
+import Clock from "./components/Clock";
+
+import "./App.css";
+
+library.add(faMinus, faPlus, faPlay, faPause, faSyncAlt);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // state init
+    const [breakCount, updateBreakCount] = useState(5);
+    const [sessionCount, updateSessionCount] = useState(25);
+    const [clockCount, updateClockCount] = useState(25 * 60);
+    const [currentTimer, updateTimer] = useState("Session");
+
+    const handleClick = (e) => {
+        // extract component name and button name from e: e.g.: break + plus
+        let update = e.target.getAttribute("updatecount");
+        let title = e.target.getAttribute("title");
+        // update breakCount or sessionCount accordingly
+        let operand = update === "plus" ? 1 : -1;
+        title === "Break Length"
+            ? updateBreakCount(breakCount + operand)
+            : updateSessionCount(sessionCount + operand);
+        // console.log("clicked: ", e.target, update, title);
+    };
+
+    const breakProps = {
+        title: "Break Length",
+        time: breakCount,
+        onClick: handleClick,
+    };
+    const sessionProps = {
+        title: "Session Length",
+        time: sessionCount,
+        onClick: handleClick,
+    };
+    const clockProps = {
+        time: clockCount,
+        current: currentTimer,
+    };
+
+    return (
+        <div className="App">
+            <h1>Pomodoro Timer</h1>
+
+            <div className="Counters">
+                <div id="break-label">
+                    {Counter({ ...breakProps })}
+                </div>
+                <div id="session-label">
+                    {Counter({ ...sessionProps })}
+                </div>
+            </div>
+
+            <div class="Clock">{Clock({ ...clockProps })}</div>
+
+            {/* <footer>Designed by meeeee</footer> */}
+        </div>
+    );
 }
 
 export default App;
