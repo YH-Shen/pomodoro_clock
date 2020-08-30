@@ -15,64 +15,55 @@ const convertToTime = (timeCount) => {
 const Clock = (props) => {
     const [isPlaying, updateIsPlaying] = useState(false);
     const [timeCount, updateTimeCount] = useState(25 * 60);
+    const [currentSession, updateCurrentSession] = useState(
+        "Session"
+    );
+    const [breakCount, updateBreakCount] = useState(5);
+    const [sessionCount, updateSessionCount] = useState(25);
 
     let loop;
     const handlePlayPause = () => {
-        console.log("play pause");
-        console.log("isPlaying", isPlaying);
+        // console.log("play pause");
+        // console.log("isPlaying", isPlaying);
+        console.log(currentSession);
+
         updateIsPlaying(!isPlaying);
     };
+
     useEffect(() => {
-        if (isPlaying) {
+        if (!isPlaying) {
             // clearInterval
             // updateIsPlaying(false);
             clearInterval(loop);
             // updateIsPlaying(true);
         } else {
-            // setInterval
-            // update timeCount
-            console.log("setinterval", timeCount);
-
-            loop = setInterval(() => {
-                updateTimeCount((t) => t - 1);
-                console.log("interval", timeCount);
-            }, 1000);
+            if (timeCount === 0) {
+                updateCurrentSession(
+                    currentSession === "Session" ? "Break" : "Session"
+                );
+                updateTimeCount(
+                    currentSession === "Session"
+                        ? breakCount * 60
+                        : sessionCount * 60
+                );
+            } else {
+                // setInterval
+                // update timeCount
+                // console.log("setinterval", timeCount);
+                loop = setInterval(() => {
+                    updateTimeCount((t) => t - 1);
+                    // console.log("interval", timeCount);
+                }, 1000);
+            }
         }
         return () => {
             clearInterval(loop);
         };
-        // console.log("clear");
     }, [isPlaying, timeCount]);
-
-    // const handlePlayPause = () => {
-    //     // console.log(timeCount, "isPlaying: ", isPlaying);
-    //     // updateIsPlaying(!isPlaying);
-
-    //     if (isPlaying) {
-    //         updateIsPlaying(false);
-    //         // updateIsPlaying((isPlaying) => false);
-    //         clearInterval(loop);
-
-    //         console.log(timeCount, "isPlaying: ", isPlaying);
-    //     } else if (!isPlaying) {
-    //         loop = setInterval(() => {
-    //             // updateTimeCount(timeCount - 1);
-    //             updateTimeCount((timeCount) => timeCount - 1);
-
-    //             console.log(timeCount, "isPlaying: ", isPlaying);
-    //         }, 1000);
-    //         updateIsPlaying(true);
-    //         // updateIsPlaying((isPlaying) => true);
-    //     }
-    // };
-
-    // useEffect(() => {
-
-    // });
 
     return (
         <div className="clock-container">
-            <h1>{props.currentSession}</h1>
+            <h1>{currentSession}</h1>
             <span>{convertToTime(timeCount)}</span>
             <div className="controls">
                 <button
@@ -82,7 +73,7 @@ const Clock = (props) => {
                 >
                     <FontAwesomeIcon
                         className="control-icon"
-                        icon="play"
+                        icon={isPlaying ? "pause" : "play"}
                     />
                 </button>
 
