@@ -21,7 +21,8 @@ function App() {
     // state init
     const [breakCount, updateBreakCount] = useState(5);
     const [sessionCount, updateSessionCount] = useState(25);
-    const [clockCount, updateClockCount] = useState(25 * 60);
+
+    // const [clockCount, updateClockCount] = useState(25 * 60);
     const [currentTimer, updateTimer] = useState("Session");
 
     const handleClick = (e) => {
@@ -47,8 +48,10 @@ function App() {
         onClick: handleClick,
     };
     const clockProps = {
-        time: clockCount,
-        current: currentTimer,
+        time: "",
+        currentSession: currentTimer,
+        isPlaying: false,
+        // loop: undefined,
     };
 
     return (
@@ -64,7 +67,7 @@ function App() {
                 </div>
             </div>
 
-            <div class="Clock">{Clock({ ...clockProps })}</div>
+            <div className="Clock">{Clock({ ...clockProps })}</div>
 
             {/* <footer>Designed by meeeee</footer> */}
         </div>

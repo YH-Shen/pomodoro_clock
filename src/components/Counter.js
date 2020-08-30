@@ -19,7 +19,7 @@ const Counter = (props) => {
             <div className="controls">
                 <button
                     title={props.title}
-                    updateCount="minus"
+                    updatecount="minus"
                     onClick={props.onClick}
                 >
                     <FontAwesomeIcon
@@ -30,7 +30,7 @@ const Counter = (props) => {
                 <span>{props.time}</span>
                 <button
                     title={props.title}
-                    updateCount="plus"
+                    updatecount="plus"
                     onClick={props.onClick}
                 >
                     <FontAwesomeIcon
