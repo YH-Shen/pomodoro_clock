@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Music from "./Music";
 
 import "../static/Clock.css";
 const convertToTime = (timeCount) => {
@@ -82,6 +83,7 @@ const Clock = (props) => {
         <div className="clock-container">
             <h1>{currentTimer}</h1>
             <span>{convertToTime(timeCount)}</span>
+            <div>{Music()}</div>
             <div className="controls">
                 <button
                     // title={props.title}
