@@ -13,57 +13,74 @@ const convertToTime = (timeCount) => {
 };
 
 const Clock = (props) => {
+    // ==============================================================
+    //  initialization
+    // ==============================================================
+    const { sessionCount, breakCount } = props;
+
     const [isPlaying, updateIsPlaying] = useState(false);
-    const [timeCount, updateTimeCount] = useState(25 * 60);
-    const [currentSession, updateCurrentSession] = useState(
-        "Session"
-    );
-    const [breakCount, updateBreakCount] = useState(5);
-    const [sessionCount, updateSessionCount] = useState(25);
+    const [timeCount, updateTimeCount] = useState(sessionCount * 60);
+    const [currentTimer, updateCurrentTimer] = useState("Session");
 
     let loop;
+    // ==============================================================
+    //  hooks
+    // ==============================================================
+
+    useEffect(() => {
+        const returningCallback = () => {
+            clearInterval(loop);
+        };
+        // Playing
+        if (!isPlaying) {
+            clearInterval(loop);
+            return returningCallback;
+        }
+
+        // Not Playing
+        const timeOut = timeCount === 0;
+        if (timeOut) {
+            updateCurrentTimer(
+                currentTimer === "Session" ? "Break" : "Session"
+            );
+            updateTimeCount(
+                currentTimer === "Session"
+                    ? breakCount * 60
+                    : sessionCount * 60
+            );
+        } else {
+            // setInterval
+            loop = setInterval(() => {
+                // update timeCount
+                updateTimeCount((t) => t - 1);
+            }, 1000);
+        }
+        return returningCallback;
+    }, [isPlaying, timeCount]);
+
+    useEffect(() => {
+        updateTimeCount(sessionCount * 60);
+    }, [sessionCount]);
+
     const handlePlayPause = () => {
         // console.log("play pause");
         // console.log("isPlaying", isPlaying);
-        console.log(currentSession);
+        console.log(currentTimer);
 
         updateIsPlaying(!isPlaying);
     };
 
-    useEffect(() => {
-        if (!isPlaying) {
-            // clearInterval
-            // updateIsPlaying(false);
-            clearInterval(loop);
-            // updateIsPlaying(true);
-        } else {
-            if (timeCount === 0) {
-                updateCurrentSession(
-                    currentSession === "Session" ? "Break" : "Session"
-                );
-                updateTimeCount(
-                    currentSession === "Session"
-                        ? breakCount * 60
-                        : sessionCount * 60
-                );
-            } else {
-                // setInterval
-                // update timeCount
-                // console.log("setinterval", timeCount);
-                loop = setInterval(() => {
-                    updateTimeCount((t) => t - 1);
-                    // console.log("interval", timeCount);
-                }, 1000);
-            }
-        }
-        return () => {
-            clearInterval(loop);
-        };
-    }, [isPlaying, timeCount]);
+    const handleReset = () => {
+        updateTimeCount(
+            currentTimer === "Session"
+                ? sessionCount * 60
+                : breakCount * 60
+        );
+    };
 
     return (
         <div className="clock-container">
-            <h1>{currentSession}</h1>
+            <h1>{currentTimer}</h1>
             <span>{convertToTime(timeCount)}</span>
             <div className="controls">
                 <button
@@ -78,9 +95,9 @@ const Clock = (props) => {
                 </button>
 
                 <button
-                // title={props.title}
-                // updateCount="plus"
-                // onClick={props.onClick}
+                    // title={props.title}
+                    // updateCount="plus"
+                    onClick={handleReset}
                 >
                     <FontAwesomeIcon
                         className="control-icon"

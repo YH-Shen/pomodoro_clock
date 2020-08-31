@@ -23,18 +23,30 @@ function App() {
     const [sessionCount, updateSessionCount] = useState(25);
 
     // const [clockCount, updateClockCount] = useState(25 * 60);
-    const [currentTimer, updateTimer] = useState("Session");
+    const [currentTimer] = useState("Session");
 
     const handleClick = (e) => {
         // extract component name and button name from e: e.g.: break + plus
+
         let update = e.target.getAttribute("updatecount");
         let title = e.target.getAttribute("title");
+
         // update breakCount or sessionCount accordingly
         let operand = update === "plus" ? 1 : -1;
+        // breakCount or sessionCount cannot be below 0 or above 60
+        if (
+            (title === "Break Length" &&
+                (breakCount + operand === 0 ||
+                    breakCount + operand === 61)) ||
+            (title === "Session Length" &&
+                (sessionCount + operand === 0 ||
+                    sessionCount + operand === 61))
+        )
+            return;
+
         title === "Break Length"
             ? updateBreakCount(breakCount + operand)
             : updateSessionCount(sessionCount + operand);
-        // console.log("clicked: ", e.target, update, title);
     };
 
     const breakProps = {
@@ -51,6 +63,8 @@ function App() {
         time: "",
         currentSession: currentTimer,
         isPlaying: false,
+        breakCount: breakCount,
+        sessionCount: sessionCount,
         // loop: undefined,
     };
 
