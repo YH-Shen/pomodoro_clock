@@ -8,7 +8,7 @@ const Clock = (props) => {
     //  initialization
     // ==============================================================
     const { sessionCount, breakCount } = props;
-    const secondsInAMinute = 3;
+    const secondsInAMinute = 60;
 
     const [isPlaying, updateIsPlaying] = useState(false);
     const [timeCount, updateTimeCount] = useState(

@@ -20,8 +20,8 @@ library.add(faMinus, faPlus, faPlay, faPause, faSyncAlt);
 
 function App() {
     // state init
-    const [breakCount, updateBreakCount] = useState(1);
-    const [sessionCount, updateSessionCount] = useState(1);
+    const [breakCount, updateBreakCount] = useState(5);
+    const [sessionCount, updateSessionCount] = useState(25);
 
     // const [clockCount, updateClockCount] = useState(25 * 60);
     const [currentTimer] = useState("Session");
