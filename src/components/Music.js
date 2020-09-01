@@ -1,18 +1,28 @@
 import React from "react";
 
-const Music = (props) => {
-    // let beep = new Audio("../static/Evillaugh.ogg");
+const Music = (status) => {
+    // let beep = new Audio(
+    //     "https://raw.githubusercontent.com/Yuhui-Shen/pomodoro_clock/master/src/static/bell.wav"
+    // );
 
-    const start = () => {
-        let beep = document.getElementById("audio");
-        console.log(beep);
-        beep.play();
-    };
+    // const start = () => {
+
+    //     // let beep = document.getElementById("audio");
+    //     // console.log(beep);
+    //     // beep.play();
+    // };
+
+    // const reset = () => {
+    //     console.log("pause");
+    //     beep.pause();
+    //     beep.currentTime = 0;
+    //     console.log("pause");
+    // };
     return (
-        <div>
-            <audio id="audio" src="../static/bell.wav"></audio>
-            <button onClick={start}>Play</button>
-        </div>
+        <audio
+            id="audio"
+            src="https://raw.githubusercontent.com/Yuhui-Shen/pomodoro_clock/master/src/static/bell.wav"
+        ></audio>
     );
 };
 

@@ -12,6 +12,7 @@ import {
 
 import Counter from "./components/Counter";
 import Clock from "./components/Clock";
+import Music from "./components/Music";
 
 import "./App.css";
 
@@ -19,8 +20,8 @@ library.add(faMinus, faPlus, faPlay, faPause, faSyncAlt);
 
 function App() {
     // state init
-    const [breakCount, updateBreakCount] = useState(5);
-    const [sessionCount, updateSessionCount] = useState(25);
+    const [breakCount, updateBreakCount] = useState(1);
+    const [sessionCount, updateSessionCount] = useState(1);
 
     // const [clockCount, updateClockCount] = useState(25 * 60);
     const [currentTimer] = useState("Session");
@@ -80,7 +81,7 @@ function App() {
                     {Counter({ ...sessionProps })}
                 </div>
             </div>
-
+            {Music()}
             <div className="Clock">{Clock({ ...clockProps })}</div>
 
             {/* <footer>Designed by meeeee</footer> */}

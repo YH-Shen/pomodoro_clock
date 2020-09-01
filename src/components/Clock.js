@@ -1,29 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Music from "./Music";
 
 import "../static/Clock.css";
-const convertToTime = (timeCount) => {
-    // take the time count (25*60)
-    // convert to minutes and seconds
-    let minutes = Math.floor(timeCount / 60);
-    let seconds = timeCount % 60;
-    seconds = seconds > 9 ? seconds : "0" + seconds;
-    // console.log(`${minutes}:${seconds}`);
-    return `${minutes}:${seconds}`;
-};
 
 const Clock = (props) => {
     // ==============================================================
     //  initialization
     // ==============================================================
     const { sessionCount, breakCount } = props;
+    const secondsInAMinute = 3;
 
     const [isPlaying, updateIsPlaying] = useState(false);
-    const [timeCount, updateTimeCount] = useState(sessionCount * 60);
+    const [timeCount, updateTimeCount] = useState(
+        sessionCount * secondsInAMinute
+    );
     const [currentTimer, updateCurrentTimer] = useState("Session");
 
     let loop;
+    // ==============================================================
+    //  helpers
+    // ==============================================================
+
+    const convertToTime = (timeCount) => {
+        // take the time count (25*secondsInAMinute)
+        // convert to minutes and seconds
+        let minutes = Math.floor(timeCount / secondsInAMinute);
+        let seconds = timeCount % secondsInAMinute;
+        seconds = seconds > 9 ? seconds : "0" + seconds;
+        // console.log(`${minutes}:${seconds}`);
+        return `${minutes}:${seconds}`;
+    };
+
+    const musicPlayPause = (status) => {
+        let beep = document.getElementById("audio");
+        if (status === "play") return beep.play();
+        // if reset
+        beep.currentTimer = 0;
+        return beep.pause();
+    };
+
     // ==============================================================
     //  hooks
     // ==============================================================
@@ -46,9 +61,11 @@ const Clock = (props) => {
             );
             updateTimeCount(
                 currentTimer === "Session"
-                    ? breakCount * 60
-                    : sessionCount * 60
+                    ? breakCount * secondsInAMinute
+                    : sessionCount * secondsInAMinute
             );
+            // Music("play");
+            musicPlayPause("play");
         } else {
             // setInterval
             loop = setInterval(() => {
@@ -60,7 +77,7 @@ const Clock = (props) => {
     }, [isPlaying, timeCount]);
 
     useEffect(() => {
-        updateTimeCount(sessionCount * 60);
+        updateTimeCount(sessionCount * secondsInAMinute);
     }, [sessionCount]);
 
     const handlePlayPause = () => {
@@ -74,16 +91,18 @@ const Clock = (props) => {
     const handleReset = () => {
         updateTimeCount(
             currentTimer === "Session"
-                ? sessionCount * 60
-                : breakCount * 60
+                ? sessionCount * secondsInAMinute
+                : breakCount * secondsInAMinute
         );
+        // Music("reset");
+        musicPlayPause("reset");
     };
 
     return (
         <div className="clock-container">
             <h1>{currentTimer}</h1>
             <span>{convertToTime(timeCount)}</span>
-            <div>{Music()}</div>
+            {/* <div>{Music()}</div> */}
             <div className="controls">
                 <button
                     // title={props.title}
