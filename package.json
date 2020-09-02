@@ -1,8 +1,8 @@
 {
+
     "name": "pomodoro_clock",
     "version": "0.1.0",
     "private": true,
-    "homepage": "yuhui-shen.github.io/pomodoro_clock",
     "dependencies": {
         "-": "0.0.1",
         "@fortawesome/fontawesome-svg-core": "^1.2.30",
@@ -21,8 +21,6 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
