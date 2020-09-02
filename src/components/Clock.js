@@ -8,6 +8,8 @@ const Clock = (props) => {
     //  initialization
     // ==============================================================
     const { sessionCount, breakCount } = props;
+    const handleClearCount = props.onClearCount;
+
     const secondsInAMinute = 60;
 
     const [isPlaying, updateIsPlaying] = useState(false);
@@ -15,6 +17,7 @@ const Clock = (props) => {
         sessionCount * secondsInAMinute
     );
     const [currentTimer, updateCurrentTimer] = useState("Session");
+    const [clickReset, updateClickReset] = useState(false);
 
     let loop;
     // ==============================================================
@@ -80,6 +83,21 @@ const Clock = (props) => {
         updateTimeCount(sessionCount * secondsInAMinute);
     }, [sessionCount]);
 
+    useEffect(() => {
+        const returningCallback = () => {
+            clearInterval(loop);
+        };
+        // if clicked reset button
+        if (clickReset === true) {
+            // pause timing
+            clearInterval(loop);
+            // reset the timer settings
+
+            updateClickReset(!clickReset);
+            return returningCallback;
+        }
+    }, [clickReset]);
+
     const handlePlayPause = () => {
         // console.log("play pause");
         // console.log("isPlaying", isPlaying);
@@ -89,37 +107,35 @@ const Clock = (props) => {
     };
 
     const handleReset = () => {
+        // reset breakcount to 5, session count to 25
+
+        //reset timer
         updateTimeCount(
             currentTimer === "Session"
-                ? sessionCount * secondsInAMinute
-                : breakCount * secondsInAMinute
+                ? 25 * secondsInAMinute
+                : 5 * secondsInAMinute
         );
-        // Music("reset");
+        // pause music
         musicPlayPause("reset");
+        updateClickReset(!clickReset);
+        updateIsPlaying(!isPlaying);
+        handleClearCount();
     };
 
     return (
         <div className="clock-container">
-            <h1>{currentTimer}</h1>
-            <span>{convertToTime(timeCount)}</span>
+            <h1 id="timer-label">{currentTimer}</h1>
+            <span id="time-left">{convertToTime(timeCount)}</span>
             {/* <div>{Music()}</div> */}
             <div className="controls">
-                <button
-                    // title={props.title}
-                    // updateCount="minus"
-                    onClick={handlePlayPause}
-                >
+                <button id="start_stop" onClick={handlePlayPause}>
                     <FontAwesomeIcon
                         className="control-icon"
                         icon={isPlaying ? "pause" : "play"}
                     />
                 </button>
 
-                <button
-                    // title={props.title}
-                    // updateCount="plus"
-                    onClick={handleReset}
-                >
+                <button id="reset" onClick={handleReset}>
                     <FontAwesomeIcon
                         className="control-icon"
                         icon="sync-alt"

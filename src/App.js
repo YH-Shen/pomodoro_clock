@@ -25,6 +25,10 @@ function App() {
 
     // const [clockCount, updateClockCount] = useState(25 * 60);
     const [currentTimer] = useState("Session");
+    const handleClearCount = () => {
+        updateBreakCount(5);
+        updateSessionCount(25);
+    };
 
     const handleClick = (e) => {
         // extract component name and button name from e: e.g.: break + plus
@@ -66,6 +70,7 @@ function App() {
         isPlaying: false,
         breakCount: breakCount,
         sessionCount: sessionCount,
+        onClearCount: handleClearCount,
         // loop: undefined,
     };
 

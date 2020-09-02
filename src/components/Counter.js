@@ -12,12 +12,24 @@ const Counter = (props) => {
     // const handleBreakIncrease = () => {
     //     updateBreakCount(props.time + 1);
     // };
-
+    let minus_button_id;
+    let plus_button_id;
+    let time_id;
+    if (props.title === "Break Length") {
+        minus_button_id = "break-decrement";
+        plus_button_id = "break-increment";
+        time_id = "break-length";
+    } else {
+        minus_button_id = "session-decrement";
+        plus_button_id = "session-increment";
+        time_id = "session-length";
+    }
     return (
         <div className="timer-container">
             <h3>{props.title}</h3>
             <div className="controls">
                 <button
+                    id={minus_button_id}
                     title={props.title}
                     updatecount="minus"
                     onClick={props.onClick}
@@ -27,8 +39,9 @@ const Counter = (props) => {
                         icon="minus"
                     />
                 </button>
-                <span>{props.time}</span>
+                <span id={time_id}>{props.time}</span>
                 <button
+                    id={plus_button_id}
                     title={props.title}
                     updatecount="plus"
                     onClick={props.onClick}
