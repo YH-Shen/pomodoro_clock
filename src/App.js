@@ -16,6 +16,13 @@ import Music from "./components/Music";
 
 import "./App.css";
 
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+} from "react-router-dom";
+
 library.add(faMinus, faPlus, faPlay, faPause, faSyncAlt);
 
 function App() {
@@ -74,23 +81,66 @@ function App() {
         // loop: undefined,
     };
 
+    function Home() {
+        return <h2>Home</h2>;
+    }
+
+    function About() {
+        return <h2>About</h2>;
+    }
+
+    function Users() {
+        return <h2>Users</h2>;
+    }
+
     return (
-        <div className="App">
-            <h1>Pomodoro Timer</h1>
+        <Router>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/about">About</Link>
+                        </li>
+                        <li>
+                            <Link to="/users">Users</Link>
+                        </li>
+                    </ul>
+                </nav>
 
-            <div className="Counters">
-                <div id="break-label">
-                    {Counter({ ...breakProps })}
+                <div className="App">
+                    <h1>Pomodoro Timer</h1>
+                    <div className="Counters">
+                        <div id="break-label">
+                            {Counter({ ...breakProps })}
+                        </div>
+                        <div id="session-label">
+                            {Counter({ ...sessionProps })}
+                        </div>
+                    </div>
+                    {Music()}
+                    <div className="Clock">
+                        {Clock({ ...clockProps })}
+                    </div>
+                    <footer>Designed by meeeee</footer>
                 </div>
-                <div id="session-label">
-                    {Counter({ ...sessionProps })}
-                </div>
+                {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+                <Switch>
+                    <Route path="/about">
+                        <About />
+                    </Route>
+                    <Route path="/users">
+                        <Users />
+                    </Route>
+                    <Route path="/">
+                        <Home />
+                    </Route>
+                </Switch>
             </div>
-            {Music()}
-            <div className="Clock">{Clock({ ...clockProps })}</div>
-
-            {/* <footer>Designed by meeeee</footer> */}
-        </div>
+        </Router>
     );
 }
 

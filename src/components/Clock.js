@@ -10,7 +10,7 @@ const Clock = (props) => {
     const { sessionCount, breakCount } = props;
     const handleClearCount = props.onClearCount;
 
-    const secondsInAMinute = 60;
+    const secondsInAMinute = 3;
 
     const [isPlaying, updateIsPlaying] = useState(false);
     const [timeCount, updateTimeCount] = useState(
@@ -80,7 +80,12 @@ const Clock = (props) => {
     }, [isPlaying, timeCount]);
 
     useEffect(() => {
-        updateTimeCount(sessionCount * secondsInAMinute);
+        // console.log(currentTimer);
+        if (currentTimer === "Session") {
+            updateTimeCount(sessionCount * secondsInAMinute);
+        } else {
+            updateTimeCount(breakCount * secondsInAMinute);
+        }
     }, [sessionCount]);
 
     useEffect(() => {
@@ -99,15 +104,12 @@ const Clock = (props) => {
     }, [clickReset]);
 
     const handlePlayPause = () => {
-        // console.log("play pause");
-        // console.log("isPlaying", isPlaying);
-        console.log(currentTimer);
-
         updateIsPlaying(!isPlaying);
     };
 
     const handleReset = () => {
         // reset breakcount to 5, session count to 25
+        console.log(currentTimer);
 
         //reset timer
         updateTimeCount(
@@ -118,7 +120,7 @@ const Clock = (props) => {
         // pause music
         musicPlayPause("reset");
         updateClickReset(!clickReset);
-        updateIsPlaying(!isPlaying);
+        updateIsPlaying(false);
         handleClearCount();
     };
 
