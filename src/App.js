@@ -7,13 +7,15 @@ import {
     faPlay,
     faPause,
     faSyncAlt,
+    faCoffee,
 } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 
 import Counter from "./components/Counter";
 import Clock from "./components/Clock";
 import Music from "./components/Music";
 import Header from "./components/Header";
+import ToDoList from "./components/ToDoList";
 
 import "./App.css";
 
@@ -86,9 +88,9 @@ function App() {
         return <h2>Home</h2>;
     }
 
-    function ToDoList() {
-        return <h2>To-Do List</h2>;
-    }
+    // function ToDoList() {
+    //     return <h2>To-Do List</h2>;
+    // }
 
     return (
         <Router>
@@ -98,6 +100,7 @@ function App() {
                 <Switch>
                     <Route path="/toDoList">
                         <Header />
+                        {/* {ToDoList()} */}
                         <ToDoList />
                     </Route>
 
@@ -114,7 +117,8 @@ function App() {
                                     {Counter({ ...sessionProps })}
                                 </div>
                             </div>
-                            {Music()}
+                            {/* {Music()} */}
+                            <Music />
                             <div className="Clock">
                                 {Clock({ ...clockProps })}
                             </div>
