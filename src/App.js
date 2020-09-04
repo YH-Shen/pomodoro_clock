@@ -13,6 +13,7 @@ import {
 import Counter from "./components/Counter";
 import Clock from "./components/Clock";
 import Music from "./components/Music";
+import Header from "./components/Header";
 
 import "./App.css";
 
@@ -85,58 +86,40 @@ function App() {
         return <h2>Home</h2>;
     }
 
-    function About() {
-        return <h2>About</h2>;
-    }
-
-    function Users() {
-        return <h2>Users</h2>;
+    function ToDoList() {
+        return <h2>To-Do List</h2>;
     }
 
     return (
         <Router>
             <div>
-                <nav>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li>
-                            <Link to="/about">About</Link>
-                        </li>
-                        <li>
-                            <Link to="/users">Users</Link>
-                        </li>
-                    </ul>
-                </nav>
-
-                <div className="App">
-                    <h1>Pomodoro Timer</h1>
-                    <div className="Counters">
-                        <div id="break-label">
-                            {Counter({ ...breakProps })}
-                        </div>
-                        <div id="session-label">
-                            {Counter({ ...sessionProps })}
-                        </div>
-                    </div>
-                    {Music()}
-                    <div className="Clock">
-                        {Clock({ ...clockProps })}
-                    </div>
-                    <footer>Designed by meeeee</footer>
-                </div>
                 {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
                 <Switch>
-                    <Route path="/about">
-                        <About />
+                    <Route path="/toDoList">
+                        <Header />
+                        <ToDoList />
                     </Route>
-                    <Route path="/users">
-                        <Users />
-                    </Route>
+
                     <Route path="/">
+                        <Header />
                         <Home />
+                        <div className="App">
+                            <h1>Pomodoro Timer</h1>
+                            <div className="Counters">
+                                <div id="break-label">
+                                    {Counter({ ...breakProps })}
+                                </div>
+                                <div id="session-label">
+                                    {Counter({ ...sessionProps })}
+                                </div>
+                            </div>
+                            {Music()}
+                            <div className="Clock">
+                                {Clock({ ...clockProps })}
+                            </div>
+                            <footer>Designed by meeeee</footer>
+                        </div>
                     </Route>
                 </Switch>
             </div>

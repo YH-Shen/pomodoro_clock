@@ -10,7 +10,9 @@ const Clock = (props) => {
     const { sessionCount, breakCount } = props;
     const handleClearCount = props.onClearCount;
 
-    const secondsInAMinute = 3;
+    // Debug Tool=====================================================
+    const secondsInAMinute = 60;
+    // ===============================================================
 
     const [isPlaying, updateIsPlaying] = useState(false);
     const [timeCount, updateTimeCount] = useState(
