@@ -1,15 +1,4 @@
 import React, { useState } from "react";
-import { library } from "@fortawesome/fontawesome-svg-core";
-// import { fab } from "@fortawesome/free-brands-svg-icons";
-import {
-    faMinus,
-    faPlus,
-    faPlay,
-    faPause,
-    faSyncAlt,
-    faCoffee,
-} from "@fortawesome/free-solid-svg-icons";
-import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 
 import Counter from "./components/Counter";
 import Clock from "./components/Clock";
@@ -26,7 +15,23 @@ import {
     Link,
 } from "react-router-dom";
 
-library.add(faMinus, faPlus, faPlay, faPause, faSyncAlt);
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+    faMinus,
+    faPlus,
+    faPlay,
+    faPause,
+    faSyncAlt,
+} from "@fortawesome/free-solid-svg-icons";
+import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
+library.add(
+    faMinus,
+    faPlus,
+    faPlay,
+    faPause,
+    faSyncAlt,
+    faPlusSquare
+);
 
 function App() {
     // state init

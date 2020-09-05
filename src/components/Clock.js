@@ -88,7 +88,7 @@ const Clock = (props) => {
         } else {
             updateTimeCount(breakCount * secondsInAMinute);
         }
-    }, [sessionCount]);
+    }, [currentTimer, sessionCount, breakCount]);
 
     useEffect(() => {
         const returningCallback = () => {
@@ -103,7 +103,7 @@ const Clock = (props) => {
             updateClickReset(!clickReset);
             return returningCallback;
         }
-    }, [clickReset]);
+    }, [clickReset, loop]);
 
     const handlePlayPause = () => {
         updateIsPlaying(!isPlaying);
