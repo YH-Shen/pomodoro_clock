@@ -12,7 +12,6 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
 } from "react-router-dom";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -22,6 +21,8 @@ import {
     faPlay,
     faPause,
     faSyncAlt,
+    faCheck,
+    faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 library.add(
@@ -30,7 +31,9 @@ library.add(
     faPlay,
     faPause,
     faSyncAlt,
-    faPlusSquare
+    faPlusSquare,
+    faCheck,
+    faTrash
 );
 
 function App() {
@@ -89,19 +92,9 @@ function App() {
         // loop: undefined,
     };
 
-    function Home() {
-        return <h2>Home</h2>;
-    }
-
-    // function ToDoList() {
-    //     return <h2>To-Do List</h2>;
-    // }
-
     return (
         <Router>
             <div>
-                {/* A <Switch> looks through its children <Route>s and
-              renders the first one that matches the current URL. */}
                 <Switch>
                     <Route path="/toDoList">
                         <Header />
@@ -111,7 +104,7 @@ function App() {
 
                     <Route path="/">
                         <Header />
-                        <Home />
+
                         <div className="App">
                             <h1>Pomodoro Timer</h1>
                             <div className="Counters">

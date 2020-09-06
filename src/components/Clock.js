@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "../static/Clock.css";
@@ -11,7 +11,7 @@ const Clock = (props) => {
     const handleClearCount = props.onClearCount;
 
     // Debug Tool=====================================================
-    const secondsInAMinute = 60;
+    const secondsInAMinute = 2;
     // ===============================================================
 
     const [isPlaying, updateIsPlaying] = useState(false);
@@ -21,7 +21,8 @@ const Clock = (props) => {
     const [currentTimer, updateCurrentTimer] = useState("Session");
     const [clickReset, updateClickReset] = useState(false);
 
-    let loop;
+    // let loop;
+    const loop = useRef(null);
     // ==============================================================
     //  helpers
     // ==============================================================
@@ -50,18 +51,18 @@ const Clock = (props) => {
 
     useEffect(() => {
         const returningCallback = () => {
-            clearInterval(loop);
+            clearInterval(loop.current);
         };
         // Playing
         if (!isPlaying) {
-            clearInterval(loop);
+            clearInterval(loop.current);
             return returningCallback;
         }
 
         // Not Playing
         const timeOut = timeCount === 0;
         if (timeOut) {
-            updateCurrentTimer(
+            updateCurrentTimer((currentTimer) =>
                 currentTimer === "Session" ? "Break" : "Session"
             );
             updateTimeCount(
@@ -73,31 +74,38 @@ const Clock = (props) => {
             musicPlayPause("play");
         } else {
             // setInterval
-            loop = setInterval(() => {
+            loop.current = setInterval(() => {
                 // update timeCount
                 updateTimeCount((t) => t - 1);
             }, 1000);
         }
         return returningCallback;
-    }, [isPlaying, timeCount]);
+    }, [
+        isPlaying,
+        timeCount,
+        currentTimer,
+        breakCount,
+        sessionCount,
+    ]);
 
     useEffect(() => {
         // console.log(currentTimer);
+        if (isPlaying) return;
         if (currentTimer === "Session") {
             updateTimeCount(sessionCount * secondsInAMinute);
         } else {
             updateTimeCount(breakCount * secondsInAMinute);
         }
-    }, [currentTimer, sessionCount, breakCount]);
+    }, [currentTimer, sessionCount, breakCount, isPlaying]);
 
     useEffect(() => {
         const returningCallback = () => {
-            clearInterval(loop);
+            clearInterval(loop.current);
         };
         // if clicked reset button
         if (clickReset === true) {
             // pause timing
-            clearInterval(loop);
+            clearInterval(loop.current);
             // reset the timer settings
 
             updateClickReset(!clickReset);

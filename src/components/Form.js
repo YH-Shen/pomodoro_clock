@@ -1,20 +1,34 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Form = (props) => {
-    const { updateInputText, todos, setTodos, inputText } = props;
+    const {
+        updateInputText,
+        todos,
+        updateTodos,
+        updateStatus,
+    } = props;
     const getTodo = () => {
         return document.getElementById("todo-input").value;
     };
+
     const inputTextHandler = (e) => {
         e.preventDefault();
         // get input text
         let todo = getTodo();
         // update input text to todos
         updateInputText(todo);
-        setTodos([...todos, { text: todo, completed: false }]);
+        updateTodos([
+            ...todos,
+            { text: todo, completed: false, id: todos.length },
+        ]);
         // clear input field
         updateInputText("");
         document.getElementById("todo-input").value = "";
+    };
+
+    const statusHandler = (e) => {
+        // console.log(e.target.value);
+        updateStatus(e.target.value);
     };
     return (
         <form>
@@ -31,7 +45,11 @@ const Form = (props) => {
                 />
             </button>
             <div className="select">
-                <select name="todos" className="filter-todo">
+                <select
+                    name="todos"
+                    className="filter-todo"
+                    onChange={statusHandler}
+                >
                     <option value="all">All</option>
                     <option value="completed">Completed</option>
                     <option value="uncompleted">Uncompleted</option>
