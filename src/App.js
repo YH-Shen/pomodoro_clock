@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+// import { connect } from "react-redux";
+
 import Counter from "./components/Counter";
 import Clock from "./components/Clock";
 import Music from "./components/Music";

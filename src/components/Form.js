@@ -1,5 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { connect } from "react-redux";
+import { addTodo } from "../redux/actions.js";
+
 const Form = (props) => {
     const {
         updateInputText,
@@ -30,6 +34,14 @@ const Form = (props) => {
         // console.log(e.target.value);
         updateStatus(e.target.value);
     };
+
+    const handleAddTodo = () => {
+        let todo = getTodo();
+        // dispatch actions to add todo
+        dispatch(addTodo(todo));
+        // Clear input field
+        document.getElementById("todo-input").value = "";
+    };
     return (
         <form>
             <input type="text" id="todo-input" />
@@ -59,4 +71,4 @@ const Form = (props) => {
     );
 };
 
-export default Form;
+export default connect(null, { addTodo })(Form);
