@@ -35,10 +35,13 @@ const Form = (props) => {
         updateStatus(e.target.value);
     };
 
-    const handleAddTodo = () => {
+    const handleAddTodo = (e) => {
+        // stop refreshing the page
+        e.preventDefault();
+
         let todo = getTodo();
         // dispatch actions to add todo
-        dispatch(addTodo(todo));
+        addTodo(todo);
         // Clear input field
         document.getElementById("todo-input").value = "";
     };
@@ -48,7 +51,7 @@ const Form = (props) => {
             <button
                 className="todo-button"
                 type="submit"
-                onClick={inputTextHandler}
+                onClick={handleAddTodo}
             >
                 {/* <FontAwesomeIcon icon="coffe" /> */}
                 <FontAwesomeIcon

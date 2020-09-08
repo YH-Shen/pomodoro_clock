@@ -13,9 +13,9 @@ const ToDoList = (props) => {
     const [filteredTodos, setFilteredTodos] = useState([]);
 
     // run once when app starts
-    useEffect(() => {
-        getLocalTodos();
-    }, []);
+    // useEffect(() => {
+    //     getLocalTodos();
+    // }, []);
 
     // useEffect
     useEffect(() => {
@@ -36,13 +36,13 @@ const ToDoList = (props) => {
             }
         };
 
-        // Save todos to local
-        const saveLocalTodos = () => {
-            localStorage.setItem("todos", JSON.stringify(todos));
-        };
+        // // Save todos to local
+        // const saveLocalTodos = () => {
+        //     localStorage.setItem("todos", JSON.stringify(todos));
+        // };
 
         filterHandler();
-        saveLocalTodos();
+        // saveLocalTodos();
     }, [todos, status]);
     // Save to local
 
@@ -80,5 +80,12 @@ const ToDoList = (props) => {
         </>
     );
 };
+
+// const mapStateToProps = (state) => {
+//     // const { visibilityFilter } = state;
+//     // const todos = getTodosByVisibilityFilter(state, visibilityFilter);
+//     const
+//     return { todos };
+// };
 
 export default ToDoList;
