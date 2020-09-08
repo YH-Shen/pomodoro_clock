@@ -1,12 +1,13 @@
 const todos = (state = [], action) => {
     switch (action.type) {
         case "ADD_TODO":
-            console.log(state);
+            const { id, content } = action.payload;
+
             return [
                 ...state,
                 {
-                    id: action.id,
-                    content: action.content,
+                    id,
+                    content,
                     completed: false,
                 },
             ];

@@ -4,36 +4,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import { addTodo } from "../redux/actions.js";
 
-const Form = (props) => {
-    const {
-        updateInputText,
-        todos,
-        updateTodos,
-        updateStatus,
-    } = props;
+const Form = ({ addTodo }) => {
+    // const {
+    //     updateInputText,
+    //     todos,
+    //     updateTodos,
+    //     updateStatus,
+    // } = props;
     const getTodo = () => {
         return document.getElementById("todo-input").value;
     };
 
-    const inputTextHandler = (e) => {
-        e.preventDefault();
-        // get input text
-        let todo = getTodo();
-        // update input text to todos
-        updateInputText(todo);
-        updateTodos([
-            ...todos,
-            { text: todo, completed: false, id: todos.length },
-        ]);
-        // clear input field
-        updateInputText("");
-        document.getElementById("todo-input").value = "";
-    };
+    // const inputTextHandler = (e) => {
+    //     e.preventDefault();
+    //     // get input text
+    //     let todo = getTodo();
+    //     // update input text to todos
+    //     updateInputText(todo);
+    //     updateTodos([
+    //         ...todos,
+    //         { text: todo, completed: false, id: todos.length },
+    //     ]);
+    //     // clear input field
+    //     updateInputText("");
+    //     document.getElementById("todo-input").value = "";
+    // };
 
-    const statusHandler = (e) => {
-        // console.log(e.target.value);
-        updateStatus(e.target.value);
-    };
+    // const statusHandler = (e) => {
+    //     // console.log(e.target.value);
+    //     updateStatus(e.target.value);
+    // };
 
     const handleAddTodo = (e) => {
         // stop refreshing the page
@@ -63,7 +63,7 @@ const Form = (props) => {
                 <select
                     name="todos"
                     className="filter-todo"
-                    onChange={statusHandler}
+                    // onChange={statusHandler}
                 >
                     <option value="all">All</option>
                     <option value="completed">Completed</option>

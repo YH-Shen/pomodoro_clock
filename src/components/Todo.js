@@ -22,6 +22,7 @@ const Todo = ({ todo }) => {
     //         })
     //     );
     // };
+    console.log(todo);
     return (
         <>
             <div className="Todo">
@@ -48,4 +49,4 @@ const Todo = ({ todo }) => {
         </>
     );
 };
-export default Todo;
+export default connect()(Todo);

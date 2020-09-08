@@ -1,78 +1,80 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import Form from "./Form";
 import Todo from "./Todo";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 
-const ToDoList = (props) => {
+const ToDoList = ({ todos }) => {
     // Hooks
     const [inputText, updateInputText] = useState("");
-    const [todos, updateTodos] = useState([]);
+    // const [todos, updateTodos] = useState([]);
     const [status, updateStatus] = useState("all");
     const [filteredTodos, setFilteredTodos] = useState([]);
 
+    console.log(todos);
     // run once when app starts
     // useEffect(() => {
     //     getLocalTodos();
     // }, []);
 
     // useEffect
-    useEffect(() => {
-        const filterHandler = () => {
-            switch (status) {
-                case "completed":
-                    setFilteredTodos(
-                        todos.filter((todo) => todo.completed)
-                    );
-                    break;
-                case "uncompleted":
-                    setFilteredTodos(
-                        todos.filter((todo) => !todo.completed)
-                    );
-                    break;
-                default:
-                    setFilteredTodos(todos);
-            }
-        };
+    // useEffect(() => {
+    //     const filterHandler = () => {
+    //         switch (status) {
+    //             case "completed":
+    //                 setFilteredTodos(
+    //                     todos.filter((todo) => todo.completed)
+    //                 );
+    //                 break;
+    //             case "uncompleted":
+    //                 setFilteredTodos(
+    //                     todos.filter((todo) => !todo.completed)
+    //                 );
+    //                 break;
+    //             default:
+    //                 setFilteredTodos(todos);
+    //         }
+    //     };
 
-        // // Save todos to local
-        // const saveLocalTodos = () => {
-        //     localStorage.setItem("todos", JSON.stringify(todos));
-        // };
+    // // Save todos to local
+    // const saveLocalTodos = () => {
+    //     localStorage.setItem("todos", JSON.stringify(todos));
+    // };
 
-        filterHandler();
-        // saveLocalTodos();
-    }, [todos, status]);
+    //     filterHandler();
+    //     // saveLocalTodos();
+    // }, [todos, status]);
     // Save to local
 
-    const getLocalTodos = () => {
-        if (localStorage.getItem("todos") === null) {
-            localStorage.setItem("todos", JSON.stringify([]));
-        } else {
-            let todoLocal = JSON.parse(localStorage.getItem("todos"));
-            updateTodos(todoLocal);
-        }
-    };
+    // const getLocalTodos = () => {
+    //     if (localStorage.getItem("todos") === null) {
+    //         localStorage.setItem("todos", JSON.stringify([]));
+    //     } else {
+    //         let todoLocal = JSON.parse(localStorage.getItem("todos"));
+    //         updateTodos(todoLocal);
+    //     }
+    // };
     return (
         <>
             <h1>To-Do List</h1>
             <Form
-                inputText={inputText}
-                todos={todos}
-                updateTodos={updateTodos}
-                updateInputText={updateInputText}
-                updateStatus={updateStatus}
+            // inputText={inputText}
+            // todos={todos}
+            // updateTodos={updateTodos}
+            // updateInputText={updateInputText}
+            // updateStatus={updateStatus}
             />
             <div className="todo-container">
                 <ul className="todo-list">
-                    {filteredTodos.map((todo) => (
+                    {todos.map((todo) => (
                         <Todo
-                            text={todo.text}
+                            text={todo.content}
                             key={todo.id}
                             todo={todo}
-                            todos={todos}
-                            updateTodos={updateTodos}
+                            // todos={todos}
+                            // updateTodos={updateTodos}
                         />
                     ))}
                 </ul>
@@ -81,11 +83,12 @@ const ToDoList = (props) => {
     );
 };
 
-// const mapStateToProps = (state) => {
-//     // const { visibilityFilter } = state;
-//     // const todos = getTodosByVisibilityFilter(state, visibilityFilter);
-//     const
-//     return { todos };
-// };
+const mapStateToProps = (state) => {
+    // const { visibilityFilter } = state;
+    // const todos = getTodosByVisibilityFilter(state, visibilityFilter);
+    // Destructure
+    const { todos } = state;
+    return { todos };
+};
 
-export default ToDoList;
+export default connect(mapStateToProps)(ToDoList);
