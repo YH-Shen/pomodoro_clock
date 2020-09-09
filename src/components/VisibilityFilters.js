@@ -28,17 +28,17 @@ const VisibilityFilters = ({ setFilter }) => {
     );
 };
 
-const getVisibleTodos = (todos, filter) => {
-    switch (filter) {
-        case "SHOW_COMPLETED":
-            return todos.filter((task) => task.completed);
-        case "SHOW_UNCOMPLETED":
-            return todos.filter((task) => !task.completed);
-        case "SHOW_ALL":
-        default:
-            return todos;
-    }
-};
+// const getVisibleTodos = (todos, filter) => {
+//     switch (filter) {
+//         case "SHOW_COMPLETED":
+//             return todos.filter((task) => task.completed);
+//         case "SHOW_UNCOMPLETED":
+//             return todos.filter((task) => !task.completed);
+//         case "SHOW_ALL":
+//         default:
+//             return todos;
+//     }
+// };
 
 const mapStatetoProps = (state) => ({
     // todos: getVisibleTodos(state.todos, state.visibilityFilter),

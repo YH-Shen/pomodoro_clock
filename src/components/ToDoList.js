@@ -92,7 +92,7 @@ const mapStateToProps = (state) => {
     const todos = getTodosByVisibilityFilter(state, visibilityFilter);
     // Destructure
     // const { todos, visibilityFilter } = state;
-
+    console.log(state);
     return { todos };
 };
 
