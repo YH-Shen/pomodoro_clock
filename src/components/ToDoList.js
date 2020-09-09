@@ -11,10 +11,10 @@ import Todo from "./Todo";
 
 const ToDoList = ({ todos }) => {
     // Hooks
-    const [inputText, updateInputText] = useState("");
+    // const [inputText, updateInputText] = useState("");
     // const [todos, updateTodos] = useState([]);
-    const [status, updateStatus] = useState("all");
-    const [filteredTodos, setFilteredTodos] = useState([]);
+    // const [status, updateStatus] = useState("all");
+    // const [filteredTodos, setFilteredTodos] = useState([]);
 
     // run once when app starts
     // useEffect(() => {

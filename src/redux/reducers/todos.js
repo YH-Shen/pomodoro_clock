@@ -33,7 +33,20 @@ const todos = (state = initialState, action) => {
                 },
             };
         }
-
+        case "DELETE_TODO": {
+            // console.log(state);
+            const { id } = action.payload;
+            delete state.byIds[id];
+            return {
+                ...state,
+                allIds: [
+                    ...state.allIds.filter((allId) => allId !== id),
+                ],
+                byIds: {
+                    ...state.byIds,
+                },
+            };
+        }
         default:
             return state;
     }

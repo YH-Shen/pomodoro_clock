@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { toggleTodo } from "../redux/actions";
+import { toggleTodo, deleteTodo } from "../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../static/Todo.css";
 
-const Todo = ({ todo, toggleTodo }) => {
+const Todo = ({ todo, toggleTodo, deleteTodo }) => {
     // const { text, updateTodos, todo, todos } = props;
     // // Events
     // const deleteHandler = () => {
@@ -43,7 +43,7 @@ const Todo = ({ todo, toggleTodo }) => {
                     <FontAwesomeIcon icon="check" />
                 </button>
                 <button
-                    // onClick={deleteHandler}
+                    onClick={() => deleteTodo(todo.id)}
                     className="trash-btn"
                 >
                     <FontAwesomeIcon icon="trash" />
@@ -52,4 +52,4 @@ const Todo = ({ todo, toggleTodo }) => {
         </>
     );
 };
-export default connect(null, { toggleTodo })(Todo);
+export default connect(null, { toggleTodo, deleteTodo })(Todo);
