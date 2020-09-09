@@ -30,11 +30,6 @@ const Form = ({ addTodo }) => {
     //     document.getElementById("todo-input").value = "";
     // };
 
-    // const statusHandler = (e) => {
-    //     // console.log(e.target.value);
-    //     updateStatus(e.target.value);
-    // };
-
     const handleAddTodo = (e) => {
         // stop refreshing the page
         e.preventDefault();
@@ -59,17 +54,6 @@ const Form = ({ addTodo }) => {
                     size="2x"
                 />
             </button>
-            <div className="select">
-                <select
-                    name="todos"
-                    className="filter-todo"
-                    // onChange={statusHandler}
-                >
-                    <option value="all">All</option>
-                    <option value="completed">Completed</option>
-                    <option value="uncompleted">Uncompleted</option>
-                </select>
-            </div>
         </form>
     );
 };

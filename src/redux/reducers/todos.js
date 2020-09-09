@@ -1,16 +1,39 @@
-const todos = (state = [], action) => {
+const initialState = {
+    allIds: [],
+    byIds: {},
+};
+
+const todos = (state = initialState, action) => {
     switch (action.type) {
         case "ADD_TODO":
             const { id, content } = action.payload;
 
-            return [
+            return {
                 ...state,
-                {
-                    id,
-                    content,
-                    completed: false,
+                allIds: [...state.allIds, id],
+                byIds: {
+                    ...state.byIds,
+                    [id]: {
+                        content,
+                        completed: false,
+                    },
                 },
-            ];
+            };
+        case "TOGGLE_TODO": {
+            // console.log(state);
+            const { id } = action.payload;
+            return {
+                ...state,
+                byIds: {
+                    ...state.byIds,
+                    [id]: {
+                        ...state.byIds[id],
+                        completed: !state.byIds[id].completed,
+                    },
+                },
+            };
+        }
+
         default:
             return state;
     }

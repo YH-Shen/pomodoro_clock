@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import { toggleTodo } from "../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../static/Todo.css";
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, toggleTodo }) => {
     // const { text, updateTodos, todo, todos } = props;
     // // Events
     // const deleteHandler = () => {
@@ -22,19 +23,21 @@ const Todo = ({ todo }) => {
     //         })
     //     );
     // };
-    console.log(todo);
+    // const completeHandler = (id, togggleTodo) => {
+    //     toggleTodo(id);
+    // };
     return (
         <>
             <div className="Todo">
                 <li
-                // className={`todo-item ${
-                //     todo.completed ? "completed" : ""
-                // }`}
+                    className={`todo-item ${
+                        todo.completed ? "completed" : ""
+                    }`}
                 >
                     {todo.content}
                 </li>
                 <button
-                    // onClick={completeHandler}
+                    onClick={() => toggleTodo(todo.id)}
                     className="complete-btn"
                 >
                     <FontAwesomeIcon icon="check" />
@@ -49,4 +52,4 @@ const Todo = ({ todo }) => {
         </>
     );
 };
-export default connect()(Todo);
+export default connect(null, { toggleTodo })(Todo);

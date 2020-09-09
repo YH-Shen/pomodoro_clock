@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import Form from "./Form";
+import VisibilityFilters from "./VisibilityFilters";
+import { getTodosByVisibilityFilter } from "../redux/selectors";
+
 import Todo from "./Todo";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -13,7 +16,6 @@ const ToDoList = ({ todos }) => {
     const [status, updateStatus] = useState("all");
     const [filteredTodos, setFilteredTodos] = useState([]);
 
-    console.log(todos);
     // run once when app starts
     // useEffect(() => {
     //     getLocalTodos();
@@ -56,6 +58,7 @@ const ToDoList = ({ todos }) => {
     //         updateTodos(todoLocal);
     //     }
     // };
+    console.log(todos);
     return (
         <>
             <h1>To-Do List</h1>
@@ -66,6 +69,7 @@ const ToDoList = ({ todos }) => {
             // updateInputText={updateInputText}
             // updateStatus={updateStatus}
             />
+            <VisibilityFilters />
             <div className="todo-container">
                 <ul className="todo-list">
                     {todos.map((todo) => (
@@ -84,10 +88,11 @@ const ToDoList = ({ todos }) => {
 };
 
 const mapStateToProps = (state) => {
-    // const { visibilityFilter } = state;
-    // const todos = getTodosByVisibilityFilter(state, visibilityFilter);
+    const { visibilityFilter } = state;
+    const todos = getTodosByVisibilityFilter(state, visibilityFilter);
     // Destructure
-    const { todos } = state;
+    // const { todos, visibilityFilter } = state;
+
     return { todos };
 };
 
