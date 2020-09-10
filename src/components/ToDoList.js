@@ -3,13 +3,15 @@ import { connect } from "react-redux";
 import Form from "./Form";
 import VisibilityFilters from "./VisibilityFilters";
 import { getTodosByVisibilityFilter } from "../redux/selectors";
+import { addTodo } from "../redux/actions.js";
 
+import axios from "axios";
 import Todo from "./Todo";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 
-const ToDoList = ({ todos }) => {
+const ToDoList = ({ todos, addTodo }) => {
     // Hooks
     // const [inputText, updateInputText] = useState("");
     // const [todos, updateTodos] = useState([]);
@@ -60,6 +62,25 @@ const ToDoList = ({ todos }) => {
     //     }
     // };
     // console.log(todos);
+
+    // run once when app starts
+    useEffect(() => {
+        // getLocalTodos();
+
+        console.log(todos.length);
+        if (todos.length === 0) {
+            axios
+                .get(
+                    "https://jsonplaceholder.typicode.com/todos?_limit=5"
+                )
+                .then((res) =>
+                    res.data.forEach((todo) => {
+                        addTodo(todo.title);
+                        console.log(todo.title);
+                    })
+                );
+        }
+    }, []);
     return (
         <>
             <h1>To-Do List</h1>
@@ -89,4 +110,4 @@ const mapStateToProps = (state) => {
     return { todos };
 };
 
-export default connect(mapStateToProps)(ToDoList);
+export default connect(mapStateToProps, { addTodo })(ToDoList);

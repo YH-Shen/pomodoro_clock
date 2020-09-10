@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import axios from "axios";
 import { connect } from "react-redux";
 import { addTodo } from "../redux/actions.js";
 
@@ -35,6 +35,11 @@ const Form = ({ addTodo }) => {
         e.preventDefault();
 
         let todo = getTodo();
+        // post with axios
+        // axios.post("https://jsonplaceholder.typicode.com/todos", {
+        //     title: todo,
+        //     completed: false,
+        // }).then(res => addTodo(res.data));
         // dispatch actions to add todo
         addTodo(todo);
         // Clear input field
