@@ -18,7 +18,8 @@ const ToDoList = ({ todos }) => {
 
     // run once when app starts
     // useEffect(() => {
-    //     getLocalTodos();
+    //     // getLocalTodos();
+    //     console.log("only runs once when app starts");
     // }, []);
 
     // useEffect
@@ -40,7 +41,7 @@ const ToDoList = ({ todos }) => {
     //         }
     //     };
 
-    // // Save todos to local
+    // Save todos to local
     // const saveLocalTodos = () => {
     //     localStorage.setItem("todos", JSON.stringify(todos));
     // };
@@ -58,17 +59,11 @@ const ToDoList = ({ todos }) => {
     //         updateTodos(todoLocal);
     //     }
     // };
-    console.log(todos);
+    // console.log(todos);
     return (
         <>
             <h1>To-Do List</h1>
-            <Form
-            // inputText={inputText}
-            // todos={todos}
-            // updateTodos={updateTodos}
-            // updateInputText={updateInputText}
-            // updateStatus={updateStatus}
-            />
+            <Form />
             <VisibilityFilters />
             <div className="todo-container">
                 <ul className="todo-list">
@@ -77,8 +72,6 @@ const ToDoList = ({ todos }) => {
                             text={todo.content}
                             key={todo.id}
                             todo={todo}
-                            // todos={todos}
-                            // updateTodos={updateTodos}
                         />
                     ))}
                 </ul>
@@ -92,7 +85,7 @@ const mapStateToProps = (state) => {
     const todos = getTodosByVisibilityFilter(state, visibilityFilter);
     // Destructure
     // const { todos, visibilityFilter } = state;
-    console.log(state);
+    // console.log(todos);
     return { todos };
 };
 

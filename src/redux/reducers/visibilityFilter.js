@@ -1,5 +1,5 @@
 const visibilityFilter = (state = "all", action) => {
-    console.log(action);
+    // console.log(action);
     switch (action.type) {
         case "SET_FILTER": {
             return action.payload.filter;
