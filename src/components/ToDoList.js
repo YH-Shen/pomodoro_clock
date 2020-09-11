@@ -62,6 +62,20 @@ const ToDoList = ({ todos, addTodo }) => {
     //     }
     // };
     // console.log(todos);
+    // setup interceptor for axios
+    axios.interceptors.response.use(
+        (response) => {
+            // console.log(response.data);
+            response.data.forEach((todo) => {
+                todo.title = todo.title.substring(0, 23);
+            });
+
+            return response;
+        },
+        (error) => {
+            return Promise.reject(error);
+        }
+    );
 
     // run once when app starts
     useEffect(() => {
@@ -76,7 +90,7 @@ const ToDoList = ({ todos, addTodo }) => {
                 .then((res) =>
                     res.data.forEach((todo) => {
                         addTodo(todo.title);
-                        console.log(todo.title);
+                        // console.log(todo.title);
                     })
                 );
         }
