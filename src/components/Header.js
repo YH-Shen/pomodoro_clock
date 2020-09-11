@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../static/Header.css";
+
 const Header = (props) => {
     return (
         <>
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/">Pomodoro Timer</Link>
                     </li>
                     <li>
                         <Link to="/toDoList">To-Do List</Link>

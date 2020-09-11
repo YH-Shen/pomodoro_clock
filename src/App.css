@@ -5,7 +5,9 @@
     background-color: #70a1ff;
     font-family: "Noto Sans", sans-serif;
 }
-.App {
+
+.App,
+.ToDoList {
     text-align: center;
 }
 

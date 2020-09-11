@@ -101,7 +101,7 @@ function App() {
                     <Route path="/toDoList">
                         <Header />
                         {/* {ToDoList()} */}
-                        <ToDoList />
+                        <ToDoList className="ToDoList" />
                     </Route>
 
                     <Route path="/">
@@ -109,6 +109,9 @@ function App() {
 
                         <div className="App">
                             <h1>Pomodoro Timer</h1>
+                            <div className="Clock">
+                                {Clock({ ...clockProps })}
+                            </div>
                             <div className="Counters">
                                 <div id="break-label">
                                     {Counter({ ...breakProps })}
@@ -119,9 +122,7 @@ function App() {
                             </div>
                             {/* {Music()} */}
                             <Music />
-                            <div className="Clock">
-                                {Clock({ ...clockProps })}
-                            </div>
+
                             <footer>Designed by meeeee</footer>
                         </div>
                     </Route>
