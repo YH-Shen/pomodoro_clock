@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../static/Header.css";
 
 const Header = (props) => {
@@ -8,10 +9,28 @@ const Header = (props) => {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Pomodoro Timer</Link>
+                        <Link to="/">
+                            <div>
+                                <FontAwesomeIcon
+                                    icon="clock"
+                                    size="2x"
+                                />
+                                <br />
+                                Pomodoro Timer
+                            </div>
+                        </Link>
                     </li>
                     <li>
-                        <Link to="/toDoList">To-Do List</Link>
+                        <Link to="/toDoList">
+                            <div>
+                                <FontAwesomeIcon
+                                    icon="list-ul"
+                                    size="2x"
+                                />
+                                <br />
+                                To-Do List
+                            </div>
+                        </Link>
                     </li>
                 </ul>
             </nav>

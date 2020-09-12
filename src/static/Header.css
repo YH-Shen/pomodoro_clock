@@ -1,6 +1,6 @@
 nav {
     height: 100%;
-    width: 160px;
+    width: 100px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -8,5 +8,21 @@ nav {
     /* background-color: #111; */
     border: black solid 2px;
     overflow-x: hidden;
-    padding-top: 20px;
+    /* padding-top: 29px; */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0px;
+}
+
+nav ul li a {
+    /* width: 100%; */
+
+    text-decoration: none;
+    color: #000;
+    font-size: 0.7em;
+}
+nav ul li {
+    margin: 46px 0px;
 }

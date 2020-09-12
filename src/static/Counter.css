@@ -1,10 +1,12 @@
 .timer-container {
-    margin: 20px;
+    margin: 0 20px;
 }
 .timer-container h1 {
     text-align: center;
 }
-
+h2 {
+    margin-top: 20px;
+}
 .controls {
 }
 

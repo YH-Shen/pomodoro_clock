@@ -11,7 +11,7 @@ const Clock = (props) => {
     const handleClearCount = props.onClearCount;
 
     // Debug Tool=====================================================
-    const secondsInAMinute = 2;
+    const secondsInAMinute = 60;
     // ===============================================================
 
     const [isPlaying, updateIsPlaying] = useState(false);
@@ -143,6 +143,7 @@ const Clock = (props) => {
                 <button id="start_stop" onClick={handlePlayPause}>
                     <FontAwesomeIcon
                         className="control-icon"
+                        size="2x"
                         icon={isPlaying ? "pause" : "play"}
                     />
                 </button>
@@ -150,6 +151,7 @@ const Clock = (props) => {
                 <button id="reset" onClick={handleReset}>
                     <FontAwesomeIcon
                         className="control-icon"
+                        size="2x"
                         icon="sync-alt"
                     />
                 </button>

@@ -25,6 +25,8 @@ import {
     faSyncAlt,
     faCheck,
     faTrash,
+    faClock,
+    faListUl,
 } from "@fortawesome/free-solid-svg-icons";
 import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 library.add(
@@ -35,7 +37,9 @@ library.add(
     faSyncAlt,
     faPlusSquare,
     faCheck,
-    faTrash
+    faTrash,
+    faClock,
+    faListUl
 );
 
 function App() {
@@ -108,22 +112,25 @@ function App() {
                         <Header />
 
                         <div className="App">
-                            <h1>Pomodoro Timer</h1>
-                            <div className="Clock">
-                                {Clock({ ...clockProps })}
-                            </div>
-                            <div className="Counters">
-                                <div id="break-label">
-                                    {Counter({ ...breakProps })}
+                            <body>
+                                <div className="Counters">
+                                    <h2>Pomodoro Timer</h2>
+                                    <div id="break-label">
+                                        {Counter({ ...breakProps })}
+                                    </div>
+                                    <div id="session-label">
+                                        {Counter({ ...sessionProps })}
+                                    </div>
                                 </div>
-                                <div id="session-label">
-                                    {Counter({ ...sessionProps })}
+                                <div className="Clock">
+                                    {Clock({ ...clockProps })}
                                 </div>
-                            </div>
+                            </body>
+
                             {/* {Music()} */}
                             <Music />
 
-                            <footer>Designed by meeeee</footer>
+                            {/* <footer>Designed by meeeee</footer> */}
                         </div>
                     </Route>
                 </Switch>
