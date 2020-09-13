@@ -87,7 +87,7 @@ const ToDoList = ({ todos, addTodo }) => {
         if (todos.length === 0) {
             axios
                 .get(
-                    "https://jsonplaceholder.typicode.com/todos?_limit=5"
+                    "https://jsonplaceholder.typicode.com/todos?_limit=3"
                 )
                 .then((res) =>
                     res.data.forEach((todo) => {
@@ -98,15 +98,14 @@ const ToDoList = ({ todos, addTodo }) => {
         }
     }, []);
     return (
-        <>
+        <div className="Todo-List-Main">
             <h1>To-Do List</h1>
             <div className="input-container">
                 <Form />
                 <VisibilityFilters />
-                <FontAwesomeIcon
-                    icon="chevron-down"
-                    id="select-down"
-                />
+                <div id="select-down">
+                    <FontAwesomeIcon icon="chevron-down" />
+                </div>
             </div>
 
             <div className="todo-container">
@@ -120,7 +119,7 @@ const ToDoList = ({ todos, addTodo }) => {
                     ))}
                 </ul>
             </div>
-        </>
+        </div>
     );
 };
 

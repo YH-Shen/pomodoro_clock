@@ -42,14 +42,19 @@ const Form = ({ addTodo }) => {
         //     completed: false,
         // }).then(res => addTodo(res.data));
         // dispatch actions to add todo
-        addTodo(todo);
-        // Clear input field
-        document.getElementById("todo-input").value = "";
+
+        // console.log(/^ *$/.test(todo));
+        // Only adds non-empty todos
+        if (!/^ *$/.test(todo)) {
+            addTodo(todo);
+            // Clear input field
+            document.getElementById("todo-input").value = "";
+        }
     };
 
     return (
         <form>
-            <input type="text" id="todo-input" />
+            <input type="text" id="todo-input" autoFocus />
             <button
                 className="todo-button"
                 id="submit"

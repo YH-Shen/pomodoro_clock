@@ -1,3 +1,6 @@
+form {
+    display: flex;
+}
 form input,
 form button {
     padding: 0.5rem;
@@ -6,8 +9,10 @@ form button {
     background: #dcdcdc;
     vertical-align: middle;
     text-align: start;
+    outline: none;
 }
 form input {
+    flex: 1;
     min-width: 30vw;
     color: #000;
     border-radius: 3px 0px 0px 3px;
@@ -35,8 +40,9 @@ form button {
 form button:hover {
     background-color: #4e4e4e;
 }
+
 form button:hover svg path {
-    background-color: #4e4e4e;
+    /* background-color: #4e4e4e; */
     color: #dcdcdc;
 }
 
