@@ -27,8 +27,9 @@ import {
     faTrash,
     faClock,
     faListUl,
+    faPlusSquare,
 } from "@fortawesome/free-solid-svg-icons";
-import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
+// import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 library.add(
     faMinus,
     faPlus,

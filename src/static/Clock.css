@@ -2,7 +2,10 @@
     background-color: transparent;
     margin: 20px;
     padding: 20px;
-    border: solid 4px #9e9e9e;
+    border: solid 4px #f9f7f7;
+
+    /* border-top: 4px solid #e8544a; */
+
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -15,20 +18,8 @@
     justify-content: center;
     width: 21em;
     height: 21em;
+}
 
-    /* transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%); */
-}
-/* Animation */
-.clock-container:before {
-    content: "";
-    border: 4px solid transparent;
-    border-top: 4px solid #e8544a;
-    border-right: 4px solid #e8544a;
-}
 .clock-container h1 {
     text-align: center;
     background-color: transparent;
@@ -45,11 +36,17 @@
     background-color: transparent;
     padding: 10px;
     margin: 15px;
-    font-size: 18px;
+    font-size: 15px;
     border: none;
     cursor: pointer;
 }
-
+#start_stop svg path {
+    color: #f9f7f7;
+}
+#reset {
+    position: absolute;
+    margin: 22px 15px;
+}
 .controls span {
     font-size: 40px;
     margin: 0 10px;

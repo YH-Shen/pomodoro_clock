@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { connect } from "react-redux";
 import { addTodo } from "../redux/actions.js";
+import "../static/Form.css";
 
 const Form = ({ addTodo }) => {
     // const {
@@ -45,18 +46,20 @@ const Form = ({ addTodo }) => {
         // Clear input field
         document.getElementById("todo-input").value = "";
     };
+
     return (
         <form>
             <input type="text" id="todo-input" />
             <button
                 className="todo-button"
+                id="submit"
                 type="submit"
                 onClick={handleAddTodo}
             >
                 {/* <FontAwesomeIcon icon="coffe" /> */}
                 <FontAwesomeIcon
-                    icon={["far", "plus-square"]}
-                    size="2x"
+                    icon={["fas", "plus-square"]}
+                    // size="2x"
                 />
             </button>
         </form>

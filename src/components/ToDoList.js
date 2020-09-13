@@ -99,8 +99,11 @@ const ToDoList = ({ todos, addTodo }) => {
     return (
         <>
             <h1>To-Do List</h1>
-            <Form />
-            <VisibilityFilters />
+            <div className="input-container">
+                <Form />
+                <VisibilityFilters />
+            </div>
+
             <div className="todo-container">
                 <ul className="todo-list">
                     {todos.map((todo) => (

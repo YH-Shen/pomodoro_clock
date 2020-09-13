@@ -143,7 +143,7 @@ const Clock = (props) => {
                 <button id="start_stop" onClick={handlePlayPause}>
                     <FontAwesomeIcon
                         className="control-icon"
-                        size="2x"
+                        size="3x"
                         icon={isPlaying ? "pause" : "play"}
                     />
                 </button>
