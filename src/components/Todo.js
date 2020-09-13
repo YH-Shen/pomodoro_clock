@@ -28,7 +28,11 @@ const Todo = ({ todo, toggleTodo, deleteTodo }) => {
     // };
     return (
         <>
-            <div className="Todo">
+            <div
+                className={`Todo ${
+                    todo.completed ? "completed" : ""
+                }`}
+            >
                 <li
                     className={`todo-item ${
                         todo.completed ? "completed" : ""

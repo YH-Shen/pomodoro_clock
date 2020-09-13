@@ -28,6 +28,7 @@ import {
     faClock,
     faListUl,
     faPlusSquare,
+    faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 // import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
 library.add(
@@ -40,7 +41,8 @@ library.add(
     faCheck,
     faTrash,
     faClock,
-    faListUl
+    faListUl,
+    faChevronDown
 );
 
 function App() {

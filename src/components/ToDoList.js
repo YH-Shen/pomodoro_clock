@@ -8,6 +8,7 @@ import { addTodo } from "../redux/actions.js";
 import axios from "axios";
 import Todo from "./Todo";
 import "../static/ToDoList.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import { faPlusSquare } from "@fortawesome/free-regular-svg-icons";
@@ -102,6 +103,10 @@ const ToDoList = ({ todos, addTodo }) => {
             <div className="input-container">
                 <Form />
                 <VisibilityFilters />
+                <FontAwesomeIcon
+                    icon="chevron-down"
+                    id="select-down"
+                />
             </div>
 
             <div className="todo-container">

@@ -5,23 +5,54 @@
     display: flex;
     align-items: center;
 }
+#select-down {
+    position: relative;
+    right: 1.8rem;
+    margin-right: -1.2rem;
+    top: 0.1rem;
+    pointer-events: none;
+    font-size: 1.5rem;
+}
+.input-container svg {
+    background-color: #dcdcdc;
+}
+.input-container svg path {
+    color: #000;
+}
+
 select {
-    /* appearance: none; */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     outline: none;
     border: none;
     color: #000;
+
     background-color: #dcdcdc;
     cursor: pointer;
     font-size: 1.2rem;
     padding: 0.5rem;
 }
 .select {
-    margin: 1rem;
+    margin: 1rem 0rem 1rem 1rem;
     position: relative;
     overflow: hidden;
     text-align: start;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
 }
-
+/* .select::after {
+    content: "\25BC";
+    position: absolute;
+    color: #000;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    top: 4px;
+    right: 0;
+} */
 .todo-container {
     display: flex;
     justify-content: center;
@@ -29,17 +60,25 @@ select {
 }
 .todo-list {
     min-width: 30%;
+    width: 100%;
+    max-width: 100%;
+
     list-style: none;
     padding: 0;
 }
 .Todo {
-    margin: 0.5rem;
+    margin: 0.5rem 0;
     background: #dcdcdc;
     color: #000;
     font-size: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
 }
 .Todo li {
     background: #dcdcdc;
@@ -49,17 +88,24 @@ select {
 }
 .trash-btn,
 .complete-btn {
-    background: #7e7e7e;
+    /* background: #7e7e7e; */
     color: #dcdcdc;
     border: none;
-    padding: 1rem;
+    padding: 0.8rem;
     cursor: pointer;
     font-size: 1rem;
 }
-
-.trash-btn svg,
-.complete-btn svg {
+.trash-btn,
+.trash-btn svg {
     background: #7e7e7e;
+    border-radius: 0 3px 3px 0;
+}
+.complete-btn,
+.complete-btn svg {
+    background: #9e9e9e;
+}
+.trash-btn svg path,
+.complete-btn svg path {
     color: #dcdcdc;
 }
 .todo-item {
