@@ -36,13 +36,15 @@ body {
 
 #break-label,
 #session-label {
-    margin: 20px;
+    margin: 10px 20px;
 }
 @media screen and (max-width: 1000px) {
     body {
         width: 100%;
+        display: flex;
+        flex-flow: column-reverse;
     }
-    /* .Counters {
+    .Counters {
         flex-flow: row wrap;
         justify-content: center;
         margin: 0 20px;
@@ -50,5 +52,19 @@ body {
     .Counters h2 {
         width: 100%;
         margin: 0;
-    } */
+    }
+    .clock-container {
+        width: 70vw;
+        height: 70vw;
+    }
+    .clock-container span {
+        font-size: 20vw;
+    }
+    .controls button {
+        margin: 1vw;
+        font-size: 3vw;
+    }
+    .clock-container h1 {
+        font-size: 8vw;
+    }
 }

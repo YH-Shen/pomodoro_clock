@@ -4,6 +4,10 @@
 .timer-container h1 {
     text-align: center;
 }
+.timer-container h3 {
+    margin-top: 0;
+    /* margin-block-start: 0; */
+}
 h2 {
     margin-top: 20px;
 }

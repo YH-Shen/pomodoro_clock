@@ -250,4 +250,7 @@ select {
     .complete-btn {
         padding: 0.4rem;
     }
+    #reset {
+        margin: 2vw 4vw;
+    }
 }
