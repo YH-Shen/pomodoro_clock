@@ -1,6 +1,6 @@
 .clock-container {
     background-color: transparent;
-    margin: 20px;
+    margin: 20px 0px;
     padding: 20px;
     border: solid 4px #f9f7f7;
 
@@ -16,17 +16,18 @@
     */
     flex-flow: column;
     justify-content: center;
-    width: 21em;
-    height: 21em;
+    width: 33vw;
+    height: 33vw;
 }
 
 .clock-container h1 {
     text-align: center;
     background-color: transparent;
     margin: 0;
+    font-size: 3.85vw;
 }
 .clock-container span {
-    font-size: 100px;
+    font-size: 9vw;
 }
 .controls {
     background-color: transparent;
@@ -34,18 +35,19 @@
 
 .controls button {
     background-color: transparent;
-    padding: 10px;
-    margin: 15px;
-    font-size: 15px;
+    padding: 0.6vw;
+    margin: 1vw;
+    font-size: 1.4vw;
     border: none;
     cursor: pointer;
+    outline: none;
 }
 #start_stop svg path {
     color: #f9f7f7;
 }
 #reset {
     position: absolute;
-    margin: 22px 15px;
+    margin: 1.6vw 1.4vw;
 }
 .controls span {
     font-size: 40px;
@@ -59,4 +61,5 @@
 #time-left {
     color: #f9f7f7;
     text-shadow: 0 0 9px;
+    background-color: transparent;
 }
