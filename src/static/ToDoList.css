@@ -1,0 +1,256 @@
+* {
+    text-align: center;
+}
+.Todo-List-Main {
+    max-width: 50vw;
+}
+.input-container {
+    display: flex;
+    align-items: center;
+}
+form {
+    flex: 1;
+}
+#select-down {
+    position: relative;
+    right: 1.8rem;
+    margin-right: -1.2rem;
+    top: 0.1rem;
+    pointer-events: none;
+    font-size: 1.5rem;
+    background-color: #dcdcdc;
+}
+#select-down svg {
+    background-color: #dcdcdc;
+}
+#select-down svg path {
+    color: #000;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: none;
+    color: #000;
+
+    background-color: #dcdcdc;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    padding-right: 2rem;
+    user-select: none;
+}
+.select {
+    margin: 1rem 0rem 1rem 1rem;
+    position: relative;
+    overflow: hidden;
+    text-align: start;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+/* .select::after {
+    content: "\25BC";
+    position: absolute;
+    color: #000;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    top: 4px;
+    right: 0;
+} */
+.todo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.todo-list {
+    min-width: 30%;
+    width: 100%;
+    max-width: 100%;
+
+    list-style: none;
+    padding: 0;
+}
+.Todo {
+    margin: 0.5rem 0;
+    background: #dcdcdc;
+    color: #000;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+.Todo li {
+    background: #dcdcdc;
+    color: #000;
+    flex: 1;
+    text-align: start;
+    /* overflow: scroll; */
+}
+.trash-btn,
+.complete-btn {
+    /* background: #7e7e7e; */
+    color: #dcdcdc;
+    border: none;
+    padding: 0.8rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.trash-btn,
+.trash-btn svg {
+    background: #7e7e7e;
+    border-radius: 0 3px 3px 0;
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    -ms-border-radius: 0 3px 3px 0;
+    -o-border-radius: 0 3px 3px 0;
+}
+.complete-btn,
+.complete-btn svg {
+    background: #9e9e9e;
+}
+.trash-btn svg path,
+.complete-btn svg path {
+    color: #dcdcdc;
+}
+.todo-item {
+    padding: 0 0.5rem;
+    overflow: auto;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+@media screen and (max-width: 1000px) {
+    form input,
+    form button {
+        padding: 0.3rem;
+        font-size: 1.2rem;
+    }
+    select {
+        font-size: 1rem;
+        padding: 0.4rem;
+    }
+    #select-down {
+        font-size: 1rem;
+        right: 1.4rem;
+        margin-right: -0.9rem;
+    }
+    form input {
+        width: 32vw;
+    }
+    .Todo {
+        font-size: 1.1rem;
+    }
+    .trash-btn,
+    .complete-btn {
+        padding: 0.5rem;
+    }
+}
+@media screen and (max-width: 700px) {
+    nav {
+        height: auto;
+        width: 100%;
+        position: fixed;
+        /* z-index: 1; */
+        top: auto;
+        left: 0;
+        bottom: 0;
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+    }
+    nav ul li {
+        margin: 0;
+    }
+    .Todo-List-Main {
+        max-width: 90vw;
+    }
+    .input-container {
+        flex-flow: row wrap;
+    }
+    form input,
+    form button {
+        padding: 0.3rem;
+        font-size: 1.2rem;
+    }
+    .select {
+        margin: 1rem 0rem 0rem 0rem;
+    }
+    select {
+        font-size: 1rem;
+        padding: 0.4rem;
+        padding-right: 2rem;
+    }
+    #select-down {
+        font-size: 1rem;
+        top: 0.5rem;
+        right: 1.4rem;
+        margin-right: -0.9rem;
+    }
+    form input {
+        width: 32vw;
+    }
+    .Todo {
+        font-size: 1.1rem;
+    }
+    .trash-btn,
+    .complete-btn {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .Todo-List-Main {
+        max-width: 80vw;
+    }
+    .input-container {
+        flex-flow: row wrap;
+    }
+    form input,
+    form button {
+        outline: none;
+        padding: 0.3rem;
+        font-size: 1.2rem;
+    }
+    .select {
+        margin: 1rem 0rem 0rem 0rem;
+    }
+    select {
+        font-size: 0.8rem;
+        padding: 0.4rem;
+        padding-right: 2rem;
+    }
+    #select-down {
+        font-size: 1rem;
+        top: 0.5rem;
+        right: 1.4rem;
+        margin-right: -0.9rem;
+    }
+    form input {
+        width: 32vw;
+        outline: none;
+        border: none;
+    }
+    .Todo {
+        font-size: 0.8rem;
+    }
+    .trash-btn,
+    .complete-btn {
+        padding: 0.4rem;
+    }
+    #reset {
+        margin: 2vw 4vw;
+    }
+}

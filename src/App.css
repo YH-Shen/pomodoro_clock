@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
+* {
+    box-sizing: border-box;
+    /* background-color: #70a1ff; */
+    background-color: #000;
+    color: #9e9e9e;
+    font-family: "Noto Sans", sans-serif;
+}
+
+.App,
+.ToDoList {
+    text-align: center;
+}
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+.Clock {
+    display: flex;
+
+    justify-content: center;
+    margin: 20px 0px;
+    user-select: none;
+}
+.Counters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    margin: 20px;
+    user-select: none;
+}
+
+#break-label,
+#session-label {
+    margin: 10px 20px;
+}
+@media screen and (max-width: 1000px) {
+    body {
+        width: 100%;
+        display: flex;
+        flex-flow: column-reverse;
+    }
+    .Counters {
+        flex-flow: row wrap;
+        justify-content: center;
+        margin: 0 20px;
+    }
+    .Counters h2 {
+        width: 100%;
+        margin: 0;
+    }
+    .clock-container {
+        width: 70vw;
+        height: 70vw;
+    }
+    .clock-container span {
+        font-size: 20vw;
+    }
+    .controls button {
+        margin: 1vw;
+        font-size: 3vw;
+    }
+    .clock-container h1 {
+        font-size: 8vw;
+    }
+}

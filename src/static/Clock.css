@@ -1,0 +1,65 @@
+.clock-container {
+    background-color: transparent;
+    margin: 20px 0px;
+    padding: 20px;
+    border: solid 4px #f9f7f7;
+
+    /* border-top: 4px solid #e8544a; */
+
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: flex;
+    /*align-self: center;
+    */
+    flex-flow: column;
+    justify-content: center;
+    width: 33vw;
+    height: 33vw;
+}
+
+.clock-container h1 {
+    text-align: center;
+    background-color: transparent;
+    margin: 0;
+    font-size: 3.85vw;
+}
+.clock-container span {
+    font-size: 9vw;
+}
+.controls {
+    background-color: transparent;
+}
+
+.controls button {
+    background-color: transparent;
+    padding: 0.6vw;
+    margin: 1vw;
+    font-size: 1.4vw;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+#start_stop svg path {
+    color: #f9f7f7;
+}
+#reset {
+    position: absolute;
+    margin: 1.6vw 1.4vw;
+}
+.controls span {
+    font-size: 40px;
+    margin: 0 10px;
+}
+
+.control-icon {
+    pointer-events: none;
+}
+
+#time-left {
+    color: #f9f7f7;
+    text-shadow: 0 0 9px;
+    background-color: transparent;
+}

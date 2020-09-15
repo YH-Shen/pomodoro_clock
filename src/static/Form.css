@@ -1,0 +1,54 @@
+form {
+    display: flex;
+}
+form input,
+form button {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border: none;
+    background: #dcdcdc;
+    vertical-align: middle;
+    text-align: start;
+    outline: none;
+}
+form input {
+    flex: 1;
+    min-width: 30vw;
+    color: #000;
+    border-radius: 3px 0px 0px 3px;
+    -webkit-border-radius: 3px 0px 0px 3px;
+    -moz-border-radius: 3px 0px 0px 3px;
+    -ms-border-radius: 3px 0px 0px 3px;
+    -o-border-radius: 3px 0px 0px 3px;
+}
+form button {
+    color: #000;
+    font-size: 1.8rem;
+    padding: 0.09rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    border-radius: 0px 3px 3px 0px;
+    -webkit-border-radius: 0px 3px 3px 0px;
+    -moz-border-radius: 0px 3px 3px 0px;
+    -ms-border-radius: 0px 3px 3px 0px;
+    -o-border-radius: 0px 3px 3px 0px;
+}
+form button:hover {
+    background-color: #4e4e4e;
+}
+
+form button:hover svg path {
+    /* background-color: #4e4e4e; */
+    color: #dcdcdc;
+}
+
+form button svg {
+    background: transparent;
+}
+form button svg path {
+    color: #000;
+}
