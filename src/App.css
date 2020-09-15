@@ -12,7 +12,7 @@
 .ToDoList {
     text-align: center;
 }
-body {
+.body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;

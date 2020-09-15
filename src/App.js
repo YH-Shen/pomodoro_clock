@@ -115,7 +115,7 @@ function App() {
                         <Header />
 
                         <div className="App">
-                            <body>
+                            <div className="body">
                                 <div className="Counters">
                                     <h2>Pomodoro Timer</h2>
                                     <div id="break-label">
@@ -128,7 +128,7 @@ function App() {
                                 <div className="Clock">
                                     {Clock({ ...clockProps })}
                                 </div>
-                            </body>
+                            </div>
 
                             {/* {Music()} */}
                             <Music />
