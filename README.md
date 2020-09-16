@@ -1,3 +1,9 @@
+// Screenshots
+
+# Pomodoro Time Management Website
+
+This Website has two pages: Pomodoro Timer, and Todo List.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
