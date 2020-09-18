@@ -1,9 +1,12 @@
 // Screenshots
+// wide screen
+// phone screen
 
 # Pomodoro Time Management Website
 
 This Website has two pages: Pomodoro Timer, and Todo List.
 I used redux and react routers. And my webpack works! Yeeeeeeees!
+I also added responsiveness to this project, check out my screenshots!
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
