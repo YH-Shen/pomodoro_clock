@@ -9,6 +9,8 @@ I used redux and react routers. And my webpack works! Yeeeeeeees!
 I also added responsiveness to this project, check out my screenshots!
 Utilized hooks such as useState, useRef and useEffect.
 
+The virtual dom makes page switching very quick.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
