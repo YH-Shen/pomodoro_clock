@@ -1,5 +1,4 @@
 // Screenshots
-
 // wide screen
 
 // phone screen
