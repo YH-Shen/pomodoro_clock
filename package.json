@@ -1,76 +1,76 @@
 {
-	"name": "pomodoro_clock",
-	"version": "0.1.0",
-	"private": true,
-	"homepage": "https://yuhui-shen.github.io/pomodoro_clock",
-	"dependencies": {
-		"-": "0.0.1",
-		"@fortawesome/fontawesome-svg-core": "^1.2.30",
-		"@fortawesome/free-brands-svg-icons": "^5.14.0",
-		"@fortawesome/free-regular-svg-icons": "^5.14.0",
-		"@fortawesome/free-solid-svg-icons": "^5.14.0",
-		"@fortawesome/react-fontawesome": "^0.1.11",
-		"@testing-library/jest-dom": "^4.2.4",
-		"@testing-library/react": "^9.5.0",
-		"@testing-library/user-event": "^7.2.1",
-		"axios": "^0.20.0",
-		"gh-pages": "^3.1.0",
-		"lodash": "^4.17.20",
-		"nanoid": "^3.1.12",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"react-redux": "^7.2.1",
-		"react-router-dom": "^5.2.0",
-		"react-scripts": "3.4.3",
-		"redux": "^4.0.5",
-		"redux-devtools-extension": "^2.13.8",
-		"save-dev": "0.0.1-security",
-		"uuid": "^8.3.0"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"watch": "webpack --watch"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
-	"description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-	"main": "index.js",
-	"devDependencies": {
-		"@babel/preset-react": "^7.10.4",
-		"clean-webpack-plugin": "^3.0.0",
-		"css-loader": "^4.3.0",
-		"file-loader": "^6.1.0",
-		"html-webpack-partials-plugin": "^0.6.1",
-		"html-webpack-root-plugin": "^0.10.0",
-		"style-loader": "^1.2.1",
-		"webpack-cli": "^3.3.12"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/Yuhui-Shen/pomodoro_clock.git"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/Yuhui-Shen/pomodoro_clock/issues"
-	}
+    "name": "pomodoro_clock",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "https://yuhui-shen.github.io/pomodoro_clock",
+    "dependencies": {
+        "-": "0.0.1",
+        "@fortawesome/fontawesome-svg-core": "^1.2.30",
+        "@fortawesome/free-brands-svg-icons": "^5.14.0",
+        "@fortawesome/free-regular-svg-icons": "^5.14.0",
+        "@fortawesome/free-solid-svg-icons": "^5.14.0",
+        "@fortawesome/react-fontawesome": "^0.1.11",
+        "@testing-library/jest-dom": "^4.2.4",
+        "@testing-library/react": "^9.5.0",
+        "@testing-library/user-event": "^7.2.1",
+        "axios": "^0.21.0",
+        "gh-pages": "^3.1.0",
+        "lodash": "^4.17.20",
+        "nanoid": "^3.1.12",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-redux": "^7.2.1",
+        "react-router-dom": "^5.2.0",
+        "react-scripts": "^4.0.3",
+        "redux": "^4.0.5",
+        "redux-devtools-extension": "^2.13.8",
+        "save-dev": "0.0.1-security",
+        "uuid": "^8.3.0"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "watch": "webpack --watch"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+    "main": "index.js",
+    "devDependencies": {
+        "@babel/preset-react": "^7.10.4",
+        "clean-webpack-plugin": "^3.0.0",
+        "css-loader": "^4.3.0",
+        "file-loader": "^6.1.0",
+        "html-webpack-partials-plugin": "^0.6.1",
+        "html-webpack-root-plugin": "^0.10.0",
+        "style-loader": "^1.2.1",
+        "webpack-cli": "^3.3.12"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Yuhui-Shen/pomodoro_clock.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Yuhui-Shen/pomodoro_clock/issues"
+    }
 }
