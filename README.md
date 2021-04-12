@@ -1,4 +1,8 @@
 # [Pomodoro Time Management Website](https://yhs-pomodoro-clock.netlify.app/)
+![Clock Screenshot - widescreen](https://github.com/Yuhui-Shen/pomodoro_clock/blob/master/public/Pomodoro_Timer_Screenshot_widescreen%20.jpg?raw=true)
+![Todo List Screenshot - widescreen](https://github.com/Yuhui-Shen/pomodoro_clock/blob/master/public/Todo_List_Screenshot_widescreen%20.jpg?raw=true)
+![Clock Screenshot - Phone screen](https://github.com/Yuhui-Shen/pomodoro_clock/blob/master/public/Pomodoro_Timer_Screenshot_phone.jpg?raw=true)
+![Todo List Screenshot - Phone screen](https://github.com/Yuhui-Shen/pomodoro_clock/blob/master/public/Todo_List_Screenshot_phone.jpg?raw=true)
 
 This is a responsive Website Application that has two pages: Pomodoro Timer, and Todo List.
 
